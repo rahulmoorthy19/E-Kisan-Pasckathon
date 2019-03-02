@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sign Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/farmer.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<div class="header">
+				<img src="images/kisan-t.png">
+				</div>	
+				<span class="login100-form-title p-b-41">
+					Register Here!
+				</span>
+				<form class="login100-form validate-form p-b-33 p-t-5">
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter farmerId">
+						<input class="input100" type="text" name="farmerId" placeholder="Farmer ID">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter firstname">
+						<input class="input100" type="text" name="firstname" placeholder="First name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+ 
+ 					<div class="wrap-input100 validate-input" data-validate = "Enter lastname">
+						<input class="input100" type="text" name="lastname" placeholder="Last name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter address">
+						<input class="input100" type="text" name="address" placeholder="Address">
+						<span class="focus-input100" data-placeholder="&#xe800;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter district">
+						<select class="input100" id="district" name="district">
+						<option style="color:black" value="None">-- Select District --</option>
+						<option style="color:black" value="Pune">Pune</option>
+						<option style="color:black" value="Chennai">Chennai</option>
+						<option style="color:black" value="Bangalore">Bangalore</option>
+						</select>
+						<span class="focus-input100" data-placeholder="&#xe833;"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter state">
+						<select class="input100" id="state" name="state">
+						<option style="color:black" value="None">-- Select State --</option>
+						<option style="color:black" value="Maharashtra">Maharashtra</option>
+						<option style="color:black" value="Tamil Nadu">Tamil Nadu</option>
+						<option style="color:black" value="Karnataka">Karnataka</option>
+						</select>
+						<span class="focus-input100" data-placeholder="&#xe833;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter phone">
+						<input class="input100" type="tel" id="phone" name="phone" placeholder="Mobile Number">
+						<span class="focus-input100" data-placeholder="&#xe830;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter age">
+						<input class="input100" type="number" min="1" max="100" name="age" placeholder="Enter Age">
+						<span class="focus-input100" data-placeholder="&#xe830;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" id="pass" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+						
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" id="pass-confirm" name="pass-confirm" placeholder="Confirm Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-32">
+						<button class="login100-form-btn">
+							Register
+						</button>
+					</div>
+
+					<div class="w-full text-center p-t-55">
+						<span class="txt2">
+							Already a member?
+						</span>
+
+						<a href="file:///home/divyajyoti/Webpage%20Templates/Login_v16/index.html#" class="txt2 bo1">
+							Login here
+						</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
