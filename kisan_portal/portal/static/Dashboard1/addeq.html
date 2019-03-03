@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	 <link rel="stylesheet" type="text/css" href="index.css">
+
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="kisan.png" /> 
+</head>
+<body class="has-overlay">
+	<!-- Left Panel -->
+		<section>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">Home</a>
+  <a href="#">Predict Plants</a>
+  <a href="#">Predict Water</a>
+  <a href="#">Predict Fertilizer</a>
+  <a href="#">Rent Equipments</a>
+  <a href="#">Add Equipments</a>
+</div>
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+<!-- Left Panel -->
+
+<div id="right-panel" class="right-panel">
+	<header id="header" class="header">
+		<div class="header-menu">
+			<div class="header-center">
+				<h2>Add Equipments</h2>
+			</div>
+		</div>
+		</header>
+
+	<div class="content">
+		<div class="card">
+			<form class="equip-form" action="" method="post" novalidate="novalidate">
+				<div class="container">
+					<div class="input">
+						<label class="control-label">Equipment Name</label>
+						<input class="input100" type="text" name="equipname">
+						<label class="control-label">Quantity</label>
+						<input class="input100" type="number" min="0" name="quantity">
+					</div>
+
+				</div>
+				<span></span>
+				<div class="container">
+					<div class="input">
+						<label class="control-label">Renting Price</label>
+						<input class="input100" type="number" min="0" name="price">
+						<label class="control-label">Age of Machine</label>
+						<input class="input100" type="number" min="0" name="usage">
+						
+					</div>
+				</div>
+				
+					<div class="input">
+						<label class="control-label">Company Name</label>
+						<input class="input100" type="text" name="company">
+						<span></span>
+					</div>
+
+					<div class="button1">
+						<button class="addeq">
+							ADD
+						</button>
+					</div>				
+
+				</form>
+
+			</div>
+</div>
+</div>
+</section>
+<script src="main.js"></script>
+</body>
+</html> 
