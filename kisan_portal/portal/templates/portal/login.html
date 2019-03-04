@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Sign Up</title>
+	<title>E-Kisan</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -34,87 +34,35 @@
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<div class="header">
 				<img src="images/kisan-t.png">
-				</div>	
+				</div>				
 				<span class="login100-form-title p-b-41">
-					Register Here!
+					Account Login
 				</span>
 				<form class="login100-form validate-form p-b-33 p-t-5">
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter farmerId">
-						<input class="input100" type="text" name="farmerId" placeholder="Farmer ID">
+					{% csrf_token %} 
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Farmer ID">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter firstname">
-						<input class="input100" type="text" name="firstname" placeholder="First name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
- 
- 					<div class="wrap-input100 validate-input" data-validate = "Enter lastname">
-						<input class="input100" type="text" name="lastname" placeholder="Last name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter address">
-						<input class="input100" type="text" name="address" placeholder="Address">
-						<span class="focus-input100" data-placeholder="&#xe800;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter district">
-						<select class="input100" id="district" name="district">
-						<option style="color:black" value="None">-- Select District --</option>
-						<option style="color:black" value="Pune">Pune</option>
-						<option style="color:black" value="Chennai">Chennai</option>
-						<option style="color:black" value="Bangalore">Bangalore</option>
-						</select>
-						<span class="focus-input100" data-placeholder="&#xe833;"></span>
-					</div>
-
-
-					<div class="wrap-input100 validate-input" data-validate = "Enter state">
-						<select class="input100" id="state" name="state">
-						<option style="color:black" value="None">-- Select State --</option>
-						<option style="color:black" value="Maharashtra">Maharashtra</option>
-						<option style="color:black" value="Tamil Nadu">Tamil Nadu</option>
-						<option style="color:black" value="Karnataka">Karnataka</option>
-						</select>
-						<span class="focus-input100" data-placeholder="&#xe833;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter phone">
-						<input class="input100" type="tel" id="phone" name="phone" placeholder="Mobile Number">
-						<span class="focus-input100" data-placeholder="&#xe830;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter age">
-						<input class="input100" type="number" min="1" max="100" name="age" placeholder="Enter Age">
-						<span class="focus-input100" data-placeholder="&#xe830;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" id="pass" name="pass" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
-						
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" id="pass-confirm" name="pass-confirm" placeholder="Confirm Password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-32">
 						<button class="login100-form-btn">
-							Register
+							Login
 						</button>
 					</div>
 
 					<div class="w-full text-center p-t-55">
 						<span class="txt2">
-							Already a member?
+							Not a member?
 						</span>
 
-						<a href="file:///home/divyajyoti/Webpage%20Templates/Login_v16/index.html#" class="txt2 bo1">
-							Login here
+						<a href="file:///home/divyajyoti/Webpage%20Templates/Signup/index.html" class="txt2 bo1">
+							Sign up now
 						</a>
 					</div>
 
