@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	 <link rel="stylesheet" type="text/css" href="index.css">
+	 <link rel="stylesheet" type="text/css" href="/static/add_equipments/index.css">
 
 <title>Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/png" href="kisan.png" /> 
+<link rel="icon" type="image/png" href="/static/add_equipments/kisan.png" /> 
 </head>
 <body class="has-overlay">
 	<!-- Left Panel -->
@@ -14,12 +14,12 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Home</a>
+  <a href="/about_us">About Us</a>
   <a href="#">Predict Plants</a>
   <a href="#">Predict Water</a>
   <a href="#">Predict Fertilizer</a>
   <a href="#">Rent Equipments</a>
-  <a href="#">Add Equipments</a>
+  <a href="/add_equipments">Add Equipments</a>
 </div>
 
 <div id="main">
@@ -38,30 +38,36 @@
 
 	<div class="content">
 		<div class="card">
-			<form class="equip-form" action="" method="post" novalidate="novalidate">
+			<form class="equip-form" action="" method="POST" novalidate="novalidate">
+				{% csrf_token %}
 				<div class="container">
 					<div class="input">
 						<label class="control-label">Equipment Name</label>
-						<input class="input100" type="text" name="equipname">
+						<input class="input100" type="text" name="equipname" id="equipname">
+					</div>
+					<div class="input">
 						<label class="control-label">Quantity</label>
-						<input class="input100" type="number" min="0" name="quantity">
+						<input class="input100" type="number" min="0" name="quantity" id="quantity">
+					
 					</div>
 
 				</div>
 				<span></span>
 				<div class="container">
 					<div class="input">
-						<label class="control-label">Renting Price</label>
-						<input class="input100" type="number" min="0" name="price">
+						<label class="control-label">Renting Price per day</label>
+						<input class="input100" type="number" min="0" name="price" id="price">
+					</div>
+					<div class="input">
 						<label class="control-label">Age of Machine</label>
-						<input class="input100" type="number" min="0" name="usage">
+						<input class="input100" type="number" min="0" name="usage" id="usage">
 						
 					</div>
 				</div>
 				
 					<div class="input">
 						<label class="control-label">Company Name</label>
-						<input class="input100" type="text" name="company">
+						<input class="input100" type="text" name="company" id="company">
 						<span></span>
 					</div>
 
@@ -77,6 +83,6 @@
 </div>
 </div>
 </section>
-<script src="main.js"></script>
+<script src="/static/add_equipments/main.js"></script>
 </body>
 </html> 

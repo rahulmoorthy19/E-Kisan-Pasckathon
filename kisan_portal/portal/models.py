@@ -1,8 +1,8 @@
 from django.db import models
 from django.conf import settings
 
-class farmer_details(models.Model):
-	farmer_id=models.AutoField(primary_key=True)
+class farmer_user(models.Model):
+	farmer_idno=models.AutoField(primary_key=True)
 	first_name=models.CharField(max_length=400,null=True,blank=False,default="rahul")
 	last_name=models.CharField(max_length=400,null=True,blank=False,default="moorthy")
 	address=models.CharField(max_length=100,null=True,blank=False,default="b302")
@@ -13,10 +13,13 @@ class farmer_details(models.Model):
 	phone_no=models.CharField(max_length=100,null=True,blank=False,default="8805979825")
 	password=models.CharField(max_length=100,null=True,blank=False)
 
-class rent_details(models.Model):
-	farmer_id=models.ForeignKey(farmer_details,on_delete=models.CASCADE)
-	equipment_name=models.IntegerField(null=False,blank=False)					##Mapping needs to be done in views.py along with drop down menu
-	equipment_quantity=models.IntegerField(null=False,blank=False)		
-	status_bit=models.IntegerField(null=False,blank=True)						##Availability check of equipment
+class rent_hire(models.Model):
+	farmer_id_rent=models.ForeignKey(farmer_user,on_delete=models.CASCADE)
+	equipment_name=models.CharField(max_length=100,null=False,blank=False)					##Mapping needs to be done in views.py along with drop down menu
+	equipment_quantity=models.IntegerField(null=False,blank=False)	
+	equipment_company=models.CharField(max_length=400,null=True,blank=True)
+	equipment_age=models.IntegerField(null=True,blank=True)
+	equipment_renting_price=models.IntegerField(null=True,blank=True)	
+	status_bit=models.IntegerField(null=False,blank=True,default=1)						##Availability check of equipment 0->not available 1->available
 
 
