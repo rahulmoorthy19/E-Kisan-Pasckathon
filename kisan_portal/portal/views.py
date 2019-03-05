@@ -2,12 +2,13 @@ from django.shortcuts import render
 from .models import farmer_user,rent_hire
 from django.conf import settings
 from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib import messages
 # Create your views here.
 logged_in_user=farmer_user()
 def register(request):
 	if request.method=='POST':
 		farmer=farmer_user()
-		farmer.farmer_reg_idno=request.POST.get("farmerId")
+		farmer.farmer_reg_id=request.POST.get("farmerId")
 		farmer.first_name=request.POST.get("firstname")
 		farmer.last_name=request.POST.get("lastname")
 		farmer.address=request.POST.get("address")
@@ -20,7 +21,7 @@ def register(request):
 			farmer.save()
 			return HttpResponseRedirect('')
 		else:
-			return render(request, 'portal/signup.html')
+			messages.error(request,'password and confirm password not same!!!')
 
 	else:
 		return render(request,'portal/signup.html')
@@ -34,6 +35,14 @@ def login(request):
 		for users in authentication:
 			if(users.password==password):
 				logged_in_user.farmer_idno=users.farmer_idno
+				logged_in_user.farmer_reg_id=users.farmer_reg_id
+				logged_in_user.first_name=users.first_name
+				logged_in_user.last_name=users.last_name
+				logged_in_user.address=users.address
+				logged_in_user.district=users.district
+				logged_in_user.state=users.state
+				logged_in_user.age=users.age
+				logged_in_user.phone_no=users.phone_no
 				return HttpResponseRedirect('about_us')
 			else:
 				return render(request,'portal/login.html')
@@ -56,4 +65,7 @@ def add_equipments(request):
 		equipment.status_bit=1
 		equipment.save()
 	return render(request,'portal/addeq.html')
+
+def profile(request):
+	return render(request,'portal/profile.html',{'user':logged_in_user})
 
