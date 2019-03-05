@@ -3,6 +3,9 @@ from .models import farmer_user,rent_hire
 from django.conf import settings
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
+import pandas as pd
+from .plot_yield import crop_yield
+from .plot_water import crop_water
 # Create your views here.
 logged_in_user=farmer_user()
 def register(request):
@@ -69,3 +72,12 @@ def add_equipments(request):
 def profile(request):
 	return render(request,'portal/profile.html',{'user':logged_in_user})
 
+def plant_predict(request):
+	train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
+	crop_yield(train,logged_in_user.district)
+	return render(request,'portal/plant_predict.html')
+
+def water_predict(request):
+	train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
+	crop_water(train,logged_in_user.district)
+	return render(request,'portal/water_predict.html')

@@ -4,10 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import seaborn as sns
-#%matplotlib inline
-
-train=pd.read_csv("train.csv")
-
 water = {'Castor seed':500, 
          'Potato':600, 
          'Other oilseeds':550,
@@ -63,28 +59,15 @@ water = {'Castor seed':500,
          'Cardamom':2250,
          'Cowpea':460
         }
-
-train['Water'] = train['Crop'].map(water)
-
-def crop_yield(X, district):
-    X = train.loc[train['District'] == district]
+def crop_water(X, district):
+    X['Water'] = X['Crop'].map(water)
+    X = X.loc[X['District'] == district]
     X = X[['Crop','Yield','Water']]
     X = X.groupby(['Crop']).mean()
     X = X.sort_values(by=['Yield'],ascending=False)
     X = X[:5]
     X['Crop']= X.index
     X = X.round({'Yield':2})
-    print(X.head())
-    plt.bar(X['Crop'],X['Yield'])
-    for a,b in zip(X['Crop'], X['Yield']):
-        plt.text(a, b, str(b))
-  
-    plt.xlabel('Crops')
-    plt.ylabel('Yield (in metric tone)')
-    plt.title('Crop vs Yield')
-    plt.savefig('CvsY.png')
-    #plt.show()
-    
     plt.bar(X['Crop'],X['Water'])
     for a,b in zip(X['Crop'], X['Water']):
         plt.text(a, b, str(b))
@@ -92,8 +75,4 @@ def crop_yield(X, district):
     plt.xlabel('Crops')
     plt.ylabel('Water (in mm)')
     plt.title('Crop vs Water require')
-    plt.savefig('CvsW.png')
-    #plt.show()
-    
-
-crop_yield(train,'Ahmedabad')
+    plt.savefig('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/static/water_predict/images/CvsW.png')
