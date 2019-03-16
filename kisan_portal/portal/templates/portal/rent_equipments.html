@@ -1,0 +1,85 @@
+{# registration/templates/registration/page.html #}
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Rent Equipments</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/static/Table_Responsive_v1/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/Table_Responsive_v1/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<form action="" method="POST" >
+		{% csrf_token %}
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Equipment Name</th>
+								<th class="column2">Equipment Quantity</th>
+								<th class="column3">Equipment Comapny</th>
+								<th class="column4">Equipment Age</th>
+								<th class="column5">Rent Price</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							
+								{% for rent_hire_user in rent_user %} 							
+								<tr>
+									
+									<td class="column1">{{rent_hire_user.equipment_name}}</td>
+									<td class="column2">{{rent_hire_user.equipment_quantity}}</td>
+									<td class="column3">{{rent_hire_user.equipment_company}}</td>
+									<td class="column4">{{rent_hire_user.equipment_age}}</td>
+									<td class="column5">{{rent_hire_user.equipment_renting_price}}</td>
+									 
+										
+								</tr>
+								{% endfor %}
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div >
+	
+						<button>
+							Login
+						</button>
+					</div>
+</form>
+	
+
+<!--===============================================================================================-->	
+	<script src="/static/Table_Responsive_v1/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/Table_Responsive_v1/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/Table_Responsive_v1/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/Table_Responsive_v1/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/Table_Responsive_v1/js/main.js"></script>
+
+</body>
+</html>

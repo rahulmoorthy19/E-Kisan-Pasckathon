@@ -7,6 +7,7 @@ import pandas as pd
 from .plot_yield import crop_yield
 from .plot_water import crop_water
 from django.urls import reverse
+from django_tables2 import RequestConfig
 # Create your views here.
 def register(request):
 	if request.method=='POST':
@@ -99,7 +100,7 @@ def profile(request):
 def plant_predict(request):
 	if request.session.has_key('farmer_reg_id'):
 		train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
-		crop_yield(train,logged_in_user.district)
+		crop_yield(train,request.session['district'])
 		return render(request,'portal/plant_predict.html')
 	else:
 		return HttpResponseRedirect(reverse('login'))
@@ -108,7 +109,7 @@ def plant_predict(request):
 def water_predict(request):
 	if request.session.has_key('farmer_reg_id'):
 		train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
-		crop_water(train,logged_in_user.district)
+		crop_water(train,request.session['district'])
 		return render(request,'portal/water_predict.html')
 	else:
 		return HttpResponseRedirect(reverse('login'))
@@ -128,6 +129,12 @@ def logout(request):
 		pass
 	return HttpResponseRedirect(reverse('login'))
 
+def rent_equipments(request):
+	if request.session.has_key('farmer_reg_id'):
+		table=rent_hire.objects.filter(status_bit=1) 
+		return render(request, 'portal/rent_equipments.html', {'rent_user': table})
+	else:
+		return HttpResponseRedirect(reverse('login'))
 
 def yojna(request):
 	if request.session.has_key('farmer_reg_id'):
