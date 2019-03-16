@@ -1,0 +1,132 @@
+{# registration/templates/registration/page.html #}
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Equipments</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/static/my_equipments/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/my_equipments/css/main.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/static/plant_predict/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/static/plant_predict/images/kisan.png" /> 
+	<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/*img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+*/
+</style>
+</head>
+
+<body>
+	<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/about_us">About Us</a>
+  <a href="/plant_predict">Predict Plants</a>
+  <a href="/water_predict">Predict Water</a>
+  <a href="/my_equipments">My Equipments</a>
+  <a href="/rent_equipments">Rent Equipments</a>
+  <a href="/add_equipments">Add Equipments</a>
+  <a href="/profile">My Profile</a>
+  <a href="/yojna">Yojna</a>
+   <a href="/logout">Logout</a>
+</div>
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+<script src="/static/plant_predict/main.js"></script>
+
+	<form action="" method="POST" id="myForm">
+		{% csrf_token %}
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Equipment Name</th>
+								<th class="column2">Equipment Quantity</th>
+								<th class="column3">Equipment Age</th>
+								<th class="column4">Rent Price</th>
+								<th class="column5">Available</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+								{% for rent_hire_user in rent_user %} 							
+								<tr>
+									
+					<td class="column1">{{rent_hire_user.equipment_name}}</td>
+					<td class="column2">{{rent_hire_user.equipment_quantity}}</td>
+					<td class="column3">{{rent_hire_user.equipment_age}}</td>
+					<td class="column4">{{rent_hire_user.equipment_renting_price}}</td>
+					<td><input type="checkbox" name="checks[]"></td>
+								</tr>
+								{% endfor %}
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div >
+				<button onclick=" seelist()" id="list" name="list" value="-1">
+							Submit
+				</button>
+</form>
+	
+
+<!--===============================================================================================-->	
+	<script src="/static/my_equipments/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/my_equipments/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/my_equipments/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/my_equipments/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/my_equipments/js/main.js"></script>
+
+</body>
+
+
+	<script type="text/javascript">
+		var checklist = [];
+	function seelist() {
+		// body...
+		var prods = document.forms['myForm'].elements['checks[]'];
+		
+		for(var i=0;i<prods.length;i++){
+			if(prods[i].checked){
+				checklist.push(i);
+			}
+		}
+		var str=checklist.join(',');
+		var fstr = document.getElementById('list');
+		fstr.value = str;
+	}
+</script>
+</html>

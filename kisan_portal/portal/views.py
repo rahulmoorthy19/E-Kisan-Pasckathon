@@ -4,8 +4,7 @@ from django.conf import settings
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib import messages
 import pandas as pd
-from .plot_yield import crop_yield
-from .plot_water import crop_water
+from .plot_water import crop_yield
 from django.urls import reverse
 from django_tables2 import RequestConfig
 # Create your views here.
@@ -23,7 +22,7 @@ def register(request):
 		if request.POST.get("pass")==request.POST.get("pass-confirm"):
 			farmer.password=request.POST.get("pass")
 			farmer.save()
-			return HttpResponseRedirect('login')
+			return HttpResponseRedirect('')
 		else:
 			messages.error(request,'password and confirm password not same!!!')
 	else:
@@ -49,6 +48,8 @@ def login(request):
 					request.session['state']=users.state
 					request.session['age']=users.age
 					request.session['phone_no']=users.phone_no
+					train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
+					crop_yield(train,request.session['district'])
 					return HttpResponseRedirect('about_us')
 				else:
 					return render(request,'portal/login.html')
@@ -67,13 +68,15 @@ def add_equipments(request):
 	if request.session.has_key('farmer_reg_id'):
 		if request.method=="POST":
 			equipment=rent_hire()
-			equipment.farmer_id_rent=farmer_user.objects.get(farmer_idno=logged_in_user.farmer_idno)
+			equipment.farmer_id_rent=farmer_user.objects.get(farmer_idno=request.session['farmer_idno'])
 			equipment.equipment_name=request.POST.get('equipname')
 			equipment.equipment_quantity=request.POST.get('quantity')
-			equipment.equipment_company=request.POST.get('company')
+			equipment.owner_phoneno=request.session['phone_no']
 			equipment.equipment_age=request.POST.get('usage')
 			equipment.equipment_renting_price=request.POST.get('price')
-			equipment.status_bit=1
+			equipment.status_bit=False
+			equipment.owner_district=request.session['district']
+			equipment.owner_name=request.session['first_name']
 			equipment.save()
 		return render(request,'portal/addeq.html')
 	else:
@@ -99,8 +102,6 @@ def profile(request):
 
 def plant_predict(request):
 	if request.session.has_key('farmer_reg_id'):
-		train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
-		crop_yield(train,request.session['district'])
 		return render(request,'portal/plant_predict.html')
 	else:
 		return HttpResponseRedirect(reverse('login'))
@@ -108,8 +109,6 @@ def plant_predict(request):
 
 def water_predict(request):
 	if request.session.has_key('farmer_reg_id'):
-		train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
-		crop_water(train,request.session['district'])
 		return render(request,'portal/water_predict.html')
 	else:
 		return HttpResponseRedirect(reverse('login'))
@@ -131,7 +130,7 @@ def logout(request):
 
 def rent_equipments(request):
 	if request.session.has_key('farmer_reg_id'):
-		table=rent_hire.objects.filter(status_bit=1) 
+		table=rent_hire.objects.filter(status_bit=False,owner_district=request.session['district']) 
 		return render(request, 'portal/rent_equipments.html', {'rent_user': table})
 	else:
 		return HttpResponseRedirect(reverse('login'))
@@ -141,3 +140,27 @@ def yojna(request):
 		return render(request,'portal/yojna.html')
 	else:
 		return HttpResponseRedirect(reverse('login'))
+
+
+
+def my_equipments(request):
+	if request.session.has_key('farmer_reg_id'):
+		if request.method=="POST":
+			table=rent_hire.objects.filter(farmer_id_rent=request.session['farmer_idno'],status_bit=False)
+			some_var = request.POST.get('list')
+			indxs=some_var.split(',')
+			print(indxs)
+			count=0
+			for x in table:
+				if str(count) in indxs: 
+					x.delete()
+				count=count+1
+			
+			table1=rent_hire.objects.filter(farmer_id_rent=request.session['farmer_idno'],status_bit=False)
+			return render(request,'portal/my_equipments.html',{'rent_user':table1})
+		else:
+			table=rent_hire.objects.filter(farmer_id_rent=request.session['farmer_idno'],status_bit=False)
+			return render(request, 'portal/my_equipments.html', {'rent_user': table})
+	else:
+		return HttpResponseRedirect(reverse('login'))
+

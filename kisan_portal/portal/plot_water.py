@@ -4,7 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import seaborn as sns
-water = {'Castor seed':500, 
+from datetime import datetime
+
+
+def crop_yield(X, district):
+    currentMonth = datetime.now().month
+    water = {'Castor seed':500, 
          'Potato':600, 
          'Other oilseeds':550,
          'Cotton':1000,
@@ -59,20 +64,34 @@ water = {'Castor seed':500,
          'Cardamom':2250,
          'Cowpea':460
         }
-def crop_water(X, district):
+    if currentMonth in [7,8,9,10]:
+        season="Kharif"
+    elif currentMonth in [11,12,1,2,3]:
+        season="Rabi"
+    elif currentMonth in [4,5,6]:
+        season="Summer"
     X['Water'] = X['Crop'].map(water)
-    X = X.loc[X['District'] == district]
+    X = X.loc[(X['District'] == district) & (X["Season"].isin([season,'Whole year']))]
     X = X[['Crop','Yield','Water']]
     X = X.groupby(['Crop']).mean()
     X = X.sort_values(by=['Yield'],ascending=False)
     X = X[:5]
     X['Crop']= X.index
     X = X.round({'Yield':2})
+    plt.bar(X['Crop'],X['Yield'])
+    for a,b in zip(X['Crop'], X['Yield']):
+        plt.text(a, b, str(b))
+       
+    plt.xlabel('Crops')
+    plt.ylabel('Yield (in metric tone)')
+    plt.title('Crop vs Yield: ')
+    plt.savefig('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/static/plant_predict/images/CvsY.png')
+    plt.clf()
     plt.bar(X['Crop'],X['Water'])
     for a,b in zip(X['Crop'], X['Water']):
         plt.text(a, b, str(b))
-        
     plt.xlabel('Crops')
     plt.ylabel('Water (in mm)')
     plt.title('Crop vs Water require')
     plt.savefig('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/static/water_predict/images/CvsW.png')
+    plt.clf()

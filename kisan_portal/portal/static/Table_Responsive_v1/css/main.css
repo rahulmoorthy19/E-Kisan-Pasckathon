@@ -105,12 +105,6 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: #c850c0;
-  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
-  background: -o-linear-gradient(45deg, #4158d0, #c850c0);
-  background: -moz-linear-gradient(45deg, #4158d0, #c850c0);
-  background: linear-gradient(45deg, #4158d0, #c850c0);
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -119,7 +113,7 @@ iframe {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 38px 35px;
+  padding: 33px 30px;
 }
 
 .wrap-table100 {
@@ -130,24 +124,25 @@ table {
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  top:-200px;
 }
 table * {
   position: relative;
 }
 table td, table th {
-  padding-left: 5px;
+  padding-left: 8px;
 }
 table thead tr {
-  height: 50px;
+  height: 60px;
   background: #36304a;
 }
 table tbody tr {
-  height: 40px;
+  height: 50px;
 }
 table tbody tr:last-child {
   border: 0;
@@ -193,33 +188,33 @@ tbody tr:hover {
 }
 
 .column1 {
-  width: 190px;
-  padding-left: 30px;
-  text-align: center;
+  width: 260px;
+  padding-left: 40px;
 }
 
 .column2 {
-  width: 185px;
-  text-align: center;
+  width: 160px;
 }
 
 .column3 {
-  width: 210px;
-  text-align: center;
+  width: 245px;
 }
 
 .column4 {
-  width: 130px;
-  text-align: center;
+  width: 110px;
+  text-align: right;
 }
 
 .column5 {
-  width: 165px;
-  text-align: center;
-  padding-right: 25px;
+  width: 170px;
+  text-align: right;
 }
 
-
+.column6 {
+  width: 222px;
+  text-align: right;
+  padding-right: 62px;
+}
 
 
 @media screen and (max-width: 992px) {
@@ -234,7 +229,7 @@ tbody tr:hover {
   }
   table tbody tr {
     height: auto;
-    padding: 27px 0;
+    padding: 37px 0;
   }
   table tbody tr td {
     padding-left: 40% !important;
@@ -251,29 +246,32 @@ tbody tr:hover {
     font-weight: unset;
     position: absolute;
     width: 40%;
-    left: 10px;
+    left: 30px;
     top: 0;
   }
   table tbody tr td:nth-child(1):before {
-    content: "Equipment Name";
+    content: "Date";
   }
   table tbody tr td:nth-child(2):before {
-    content: "Equipment Quantity";
+    content: "Order ID";
   }
   table tbody tr td:nth-child(3):before {
-    content: "Equipment Company";
+    content: "Name";
   }
   table tbody tr td:nth-child(4):before {
-    content: "Equipment Age";
+    content: "Price";
   }
   table tbody tr td:nth-child(5):before {
-    content: "Rent Price";
+    content: "Quantity";
   }
-  
+  table tbody tr td:nth-child(6):before {
+    content: "Total";
+  }
+
   .column4,
   .column5,
   .column6 {
-    text-align: right;
+    text-align: left;
   }
 
   .column4,
@@ -292,7 +290,8 @@ tbody tr:hover {
 
 @media (max-width: 576px) {
   .container-table100 {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
+

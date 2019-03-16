@@ -17,9 +17,11 @@ class rent_hire(models.Model):
 	farmer_id_rent=models.ForeignKey(farmer_user,on_delete=models.CASCADE)
 	equipment_name=models.CharField(max_length=100,null=False,blank=False)					##Mapping needs to be done in views.py along with drop down menu
 	equipment_quantity=models.IntegerField(null=False,blank=False)	
-	equipment_company=models.CharField(max_length=400,null=True,blank=True)
 	equipment_age=models.IntegerField(null=True,blank=True)
-	equipment_renting_price=models.IntegerField(null=True,blank=True)	
-	status_bit=models.IntegerField(null=False,blank=True,default=1)						##Availability check of equipment 0->not available 1->available
+	equipment_renting_price=models.IntegerField(null=True,blank=True)
+	owner_phoneno=models.CharField(max_length=100,null=True,blank=False,default="8805979825")	
+	status_bit=models.BooleanField(null=False,blank=True,default=False)			##Availability check of equipment 0->not available 1->available
+	owner_district=models.CharField(max_length=100,null=True,blank=False,default="pune")
+	owner_name=models.CharField(max_length=400,null=True,blank=False,default="rahul")
 
 
