@@ -149,8 +149,8 @@ def my_equipments(request):
 			table=rent_hire.objects.filter(farmer_id_rent=request.session['farmer_idno'],status_bit=False)
 			some_var = request.POST.get('list')
 			indxs=some_var.split(',')
-			print(indxs)
 			count=0
+			print(indxs)
 			for x in table:
 				if str(count) in indxs: 
 					x.delete()
