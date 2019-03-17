@@ -4,16 +4,16 @@
 # Team Members
 
 
-1.Rahul Moorthy- 3rd Year B.E Comp Engg
+1.Rahul Moorthy- https://github.com/rahulmoorthy19
 
 
-2.Divyajyoti Ukirde- 3rd Year B.E Comp Engg
+2.Divyajyoti Ukirde- https://github.com/divyajyotiuk
 
 
-3.Saurabh Tandale- 3rd Year B.E Comp Engg
+3.Saurabh Tandale- https://github.com/sauriii98
 
 
-4.Shahrukh Ozair Khan- 3rd Year B.E Comp Engg
+4.Shahrukh Ozair Khan- https://github.com/bruce9steve
 
 
 
