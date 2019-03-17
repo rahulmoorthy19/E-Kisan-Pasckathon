@@ -77,6 +77,8 @@ This proves the Scalability aspect of the Project.
 
 4. Framework for Machine Learning Used- Keras
 
+5. Database Used- SQLite
+
 # Technological Conceps Used
 
 1. Session Management
