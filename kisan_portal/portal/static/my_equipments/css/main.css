@@ -69,15 +69,6 @@ textarea:focus, input:focus {
 }
 
 /* ------------------------------------ */
-button {
-	outline: none !important;
-	border: none;
-	background: transparent;
-}
-
-button:hover {
-	cursor: pointer;
-}
 
 iframe {
 	border: none !important;
@@ -97,19 +88,16 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
 
-#list
-{
-position:relative;
-left:875px;
-bottom:500px;
-}
+
+
+
 .limiter {
   width: 100%;
-  margin: 0 auto;
+  margin: 20 auto;
 }
 
 .container-table100 {
-  width: 100%;
+  width: 95%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -123,7 +111,7 @@ bottom:500px;
 }
 
 .wrap-table100 {
-  width: 1170px;
+  width: 1070px;
 }
 
 table {
@@ -304,3 +292,18 @@ tbody tr:hover {
   }
 }
 
+.top-title{
+  color: white;
+  background:black;
+  text-transform: uppercase;
+  margin: 0 auto; 
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: 400;
+  z-index: -1;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
+}

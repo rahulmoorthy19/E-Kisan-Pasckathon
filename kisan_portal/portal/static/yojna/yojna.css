@@ -1,8 +1,8 @@
 
 body{
   font-family: "Lato", sans-serif;
-  background-image: url('farm.jpg');
-  height: 980px;
+  background-image: url('/static/yojna/farmer.jpg');
+ /* height: 980px;*/
   background-blend-mode: "screen"
   background-position: center center;
   background-repeat: no-repeat;
@@ -24,92 +24,23 @@ body.has-overlay::before {
     background-color: rgba(0,0,0, 0.3);
 }
 
-header{
-  z-index:1;
-}
-
 section {
-    margin-left: 50px;
+    margin-left: 0;
     position: relative;
     z-index: 1;
 }
 
-
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.2s;
-  padding-top: 60px;
-
-}
-
-.sidenav a {
-  padding: 10px 10px 50px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-#main {
-  transition: margin-left .2s;
-  padding: 16px;
-  color:black;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
   
-p{
+/*p{
   background:white;
   border-radius: 8px;
   padding: 1px 3px 1px 3px;
 }
+*/
 
-.top-title{
-  color: white;
-  text-transform: uppercase;
-  margin: 0 auto; 
-  padding: 20px 0;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height:70px;
- background-color: #fdb813;
-background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);
-  font-weight: 400;
-  z-index: -1;
-  box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
-}
 
 .container{
   margin-top: 60px;
-  margin-left: 230px;
   margin-bottom:80px;
 }
 
@@ -134,6 +65,7 @@ background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);
 .card-text{
   text-align:center;
   font-size:16px;
+  display:inline-block;
 }
 
 .row-space{
@@ -146,7 +78,7 @@ background-image: linear-gradient(315deg, #fdb813 0%, #788cb6 74%);
 
 footer{
   height:100px;
-  background: #808080;
+  background: transparent;
   text-align:center;
   padding-top: 30px;
   }
@@ -164,3 +96,109 @@ footer{
   align-items: center;
   font-size: 17px;
 }*/
+
+/* Remove dark-nav class from nav tag to see the light version  */
+
+/*header {
+  height: 100vh;
+}*/
+.container1:after, .container1:before {
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+/* Start navbar */
+.nav {
+  margin-left:0px;
+  background-color: #000;
+  border-bottom: 1px solid #ececec;
+  min-height: 50px;
+  height: auto;
+}
+.nav .nav-heading {float: center}
+
+
+.nav .nav-heading > a {
+  text-decoration: none;
+  color: #fff;
+  line-height: 60px;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+
+/*.nav .list {
+
+  float: center;
+  margin: 0;
+}*/
+
+.nav ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav .list > li {
+ 
+  /*float: left;*/
+  margin-left: 140px;
+  margin-right:100px;
+  margin-bottom:30px;
+  list-style: none;
+}
+
+
+.nav .list > li > a {
+ 
+  color: #fff;
+  transition: background-color .2s, color .2s;
+
+  text-decoration: none;
+  display: block;
+
+   padding:12px;
+  line-height:1;
+
+}
+
+
+
+.nav .list > li > a:hover,
+.nav .list > li.active > a:focus {
+ 
+  background-color: #fff;
+  color: #000;
+}
+
+
+.show {
+  display: block
+}
+
+/* End sub dropdown menu */
+
+
+/* Start media query for navbar */
+@media (max-width: 767px) {
+  .nav .container1 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .nav .nav-heading {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #e7e7e7
+  }
+  .nav .nav-heading .brand {
+    float: center}
+
+
+
+

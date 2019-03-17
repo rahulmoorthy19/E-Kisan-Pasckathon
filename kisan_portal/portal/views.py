@@ -22,7 +22,7 @@ def register(request):
 		if request.POST.get("pass")==request.POST.get("pass-confirm"):
 			farmer.password=request.POST.get("pass")
 			farmer.save()
-			return HttpResponseRedirect('')
+			return HttpResponseRedirect('login')
 		else:
 			messages.error(request,'password and confirm password not same!!!')
 	else:
@@ -31,7 +31,7 @@ def register(request):
 
 def login(request):
 	if request.session.has_key('farmer_reg_id'):
-		return HttpResponseRedirect('about_us')
+		return HttpResponseRedirect('profile')
 	else:
 		if request.method=='POST':
 			farmer_reg_id=request.POST.get("username")
@@ -50,7 +50,7 @@ def login(request):
 					request.session['phone_no']=users.phone_no
 					train=pd.read_csv('/home/sirzechlucifer/ML and ROS/e-Kisan/kisan_portal/portal/train.csv')
 					crop_yield(train,request.session['district'])
-					return HttpResponseRedirect('about_us')
+					return HttpResponseRedirect('profile')
 				else:
 					return render(request,'portal/login.html')
 		else:
@@ -58,10 +58,7 @@ def login(request):
 
 
 def about_us(request):
-	if request.session.has_key('farmer_reg_id'):
-		return render(request,'portal/dashboard.html')
-	else:
-		return HttpResponseRedirect(reverse('login'))
+	return render(request,'portal/dashboard.html')
 
 
 def add_equipments(request):
@@ -136,10 +133,7 @@ def rent_equipments(request):
 		return HttpResponseRedirect(reverse('login'))
 
 def yojna(request):
-	if request.session.has_key('farmer_reg_id'):
-		return render(request,'portal/yojna.html')
-	else:
-		return HttpResponseRedirect(reverse('login'))
+	return render(request,'portal/yojna.html')
 
 
 
@@ -148,6 +142,7 @@ def my_equipments(request):
 		if request.method=="POST":
 			table=rent_hire.objects.filter(farmer_id_rent=request.session['farmer_idno'],status_bit=False)
 			some_var = request.POST.get('list')
+			print(some_var)
 			indxs=some_var.split(',')
 			count=0
 			print(indxs)

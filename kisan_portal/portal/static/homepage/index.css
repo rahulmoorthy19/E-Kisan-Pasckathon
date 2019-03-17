@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Oswald:300,400,700');
+
+
+body {
+
+    font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0 auto;
+  width: 100%;
+	
+/* height: 0;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/static/homepage/images/farming.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position:relative;
+  z-index: -1;
+
+}
+
+body.has-overlay::before {
+    content: "";
+    display: block;
+    position: fixed;
+    padding: 100px 0;
+    width: 100%;
+    height: 150vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.7);
+}
+
+
+section {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/*
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+
+}*/
+
+h1 {
+  text-align: center;
+  font-family: "Oswald", sans;
+  font-size: 4rem;
+  font-weight: normal;
+  line-height: 3.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px; // Smaller headers look better with spacing
+  color:black;
+}
+
+
+.item {
+  /* Padding is used for smaller screens */
+  padding: 0 30px 0 30px;
+  text-align: center;
+}
+
+
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;  
+  display: inline-block;
+  line-height: 1.25rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  transition: all .2s ease-in-out;
+  cursor:pointer;
+  
+&.btn-primary {
+    color: #fff;
+    background-color: #000;
+    border-color: #666;
+
+    &:hover {
+      color: #fff;
+      background-color: #333;
+      border-color: #666;
+    }  
+  }  
+}
+
+
+
+.btn-primary:hover {
+   color: #fff;
+   background-color: #333;
+   border-color: #666;
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+ 
+}
+
+// Medium devices (tablets, 768px and up)
+ @media (min-width: 768px) {
+  
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .item {
+    width:80%;
+  } 
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .item {
+    width:60%;
+  }
+}
+
+
+
+.container:after, .container:before {
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+/* Start navbar */
+.nav {
+  background-color: #000;
+  border-bottom: 1px solid #ececec;
+  min-height: 50px;
+  height: auto;
+}
+.nav .nav-heading {float: center}
+
+
+.nav .nav-heading > a {
+  text-decoration: none;
+  color: #fff;
+  line-height: 60px;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+
+/*.nav .list {
+
+  float: center;
+  margin: 0;
+}*/
+
+ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav .list > li {
+ 
+  /*float: left;*/
+  margin-left: 100px;
+  margin-right:100px;
+  margin-bottom:30px;
+  list-style: none;
+}
+
+
+.nav .list > li > a {
+ 
+  color: #fff;
+  transition: background-color .2s, color .2s;
+
+  text-decoration: none;
+  display: block;
+
+   padding:12px;
+  line-height:1;
+
+}
+
+
+
+.nav .list > li > a:hover,
+.nav .list > li.active > a:focus {
+ 
+  background-color: #fff;
+  color: #000;
+}
+
+
+.show {
+  display: block
+}
+
+/* End sub dropdown menu */
+
+
+/* Start media query for navbar */
+@media (max-width: 767px) {
+  .nav .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .nav .nav-heading {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #e7e7e7
+  }
+  .nav .nav-heading .brand {
+    float: center}
+
+
+

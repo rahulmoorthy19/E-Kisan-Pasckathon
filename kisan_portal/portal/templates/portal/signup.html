@@ -1,65 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<title>Sign Up</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<title>Sign Up</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/static/Signup/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="/static/signup/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/static/Signup/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/static/Signup/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/Signup/css/main.css">
-<!--===============================================================================================-->
-</head>
+	<link rel="stylesheet" type="text/css" href="/static/signup/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/static/signup/css/main1.css">
+  </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<header>
+
+
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-heading">
+      
+        <a class="brand" href="#">
+          <img src="/static/signup/1.png" style="height:120px;width:170px; margin-left:475px; margin-top:30px">
+        </a>
+      </div>
+        <ul class="list">
+
+          <li ><a href="/">About us</a></li> 
+          <li><a href="/yojna">Yojana</a></li> 
+          <li><a href="/login">Login</a></li> 
+          <li class="active"><a href="/register">Sign Up</a></li> 
+        </ul>
+    </div>
+  </nav>
+</header>
 <body>
-	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('/static/Signup/images/farmer.jpg');">
+
+<div class="limiter">
+		<div class="container-login100" style="background-image: url('/static/signup/images/farmer.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
-				<div class="header">
-				<img src="/static/Signup/images/kisan-t.png">
-				</div>	
+					
 				<span class="login100-form-title p-b-41">
 					Register Here!
 				</span>
-				<form action="" method="POST" class="login100-form validate-form p-b-33 p-t-5">
-					{% csrf_token %} 
-					<div class="wrap-input100 validate-input" data-validate = "Enter farmerId">
-				<input class="input100" type="text" name="farmerId" id="farmer_id" placeholder="Farmer ID">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
+				<form class="login100-form validate-form p-b-33 p-t-5" method="POST">
+				{% csrf_token %}
+	
+						<div class="wrap-input100 validate-input" data-validate = "Enter farmerId">
+							<input class="input100" type="text" name="farmerId" placeholder="Farmer ID">
+							<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+						</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter firstname">
-				<input class="input100" type="text" name="firstname" id="first" placeholder="First name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
-					</div>
- 
+						<div class="wrap-input100 validate-input" data-validate = "Enter firstname">
+							<input class="input100" type="text" name="firstname" placeholder="First name">
+							<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+						</div>
+
+
  					<div class="wrap-input100 validate-input" data-validate = "Enter lastname">
-				<input class="input100" type="text" name="lastname" id="last" placeholder="Last name">
+						<input class="input100" type="text" name="lastname" placeholder="Last name">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter address">
-				<input class="input100" type="text" name="address" id="address"  placeholder="Address">
+						<input class="input100" type="text" name="address" placeholder="Address">
 						<span class="focus-input100" data-placeholder="&#xe800;"></span>
 					</div>
 
+				
 					<div class="wrap-input100 validate-input" data-validate = "Enter district">
 						<select class="input100" id="district" name="district">
 						<option style="color:black" value="None">-- Select District --</option>
@@ -102,7 +126,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter age">
-						<input class="input100" type="number" min="1" max="100" id="age" name="age" placeholder="Enter Age">
+						<input class="input100" type="number" min="1" max="100" name="age" placeholder="Enter Age">
 						<span class="focus-input100" data-placeholder="&#xe830;"></span>
 					</div>
 
@@ -128,16 +152,11 @@
 							Already a member?
 						</span>
 
-			<a href="/" class="txt2 bo1">
+						<a href="/login" class="txt2 bo1">
 							Login here
 						</a>
 					</div>
-			{% for message in messages %}
-				<div class="alert alert-success">
-					<a class="close" href="#" data-dismiss="alert"></a>
-					{{ message}}
-				</div>
-			{% endfor %}
+
 				</form>
 			</div>
 		</div>
@@ -145,23 +164,23 @@
 	
 
 	<div id="dropDownSelect1"></div>
-	
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/bootstrap/js/popper.js"></script>
-	<script src="/static/Signup/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/daterangepicker/moment.min.js"></script>
-	<script src="/static/Signup/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="/static/Signup/js/main.js"></script>
 
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/bootstrap/js/popper.js"></script>
+	<script src="/static/signup/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/static/signup/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/static/signup/js/main1.js"></script>
 </body>
 </html>
+

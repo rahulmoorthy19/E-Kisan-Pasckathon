@@ -1,7 +1,7 @@
 
 body{
   font-family: "Lato", sans-serif;
-  background-image: url('images/bgimage3.jpg');
+  background-image: url('/static/water_predict/images/a8.jpg');
   height: 980px;
   background-blend-mode: "screen"
   background-position: center center;
@@ -150,3 +150,21 @@ button:hover{
 }
 
 span{margin:0 5px 0 15px;}
+
+
+.top-title{
+  color: white;
+  background:black;
+  text-transform: uppercase;
+  margin: 0 auto; 
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: 400;
+  z-index: -1;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
+
+}

@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+  src: url('/static/login/fonts/ubuntu/Ubuntu-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+  src: url('/static/login/fonts/ubuntu/Ubuntu-Bold.ttf'); 
 }
 
 
@@ -28,6 +28,7 @@
 }
 
 body, html {
+
 	height: 100%;
 	font-family: Ubuntu-Regular, sans-serif;
 }
@@ -67,10 +68,10 @@ p {
 	margin: 0px;
 }
 
-ul, li {
+/*ul, li {
 	margin: 0px;
 	list-style-type: none;
-}
+}*/
 
 
 /*---------------------------------------------*/
@@ -161,12 +162,12 @@ iframe {
 
 .limiter {
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .container-login100 {
   width: 100%;  
-  min-height: 100vh;
+  /*min-height: 0;*/  /*changed 100vh*/
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -181,7 +182,9 @@ iframe {
   background-position: center;
   background-size: cover;
   position: relative;
-  z-index: 1;  
+  z-index: 1;
+
+
 }
 
 .container-login100::before {
@@ -210,6 +213,7 @@ iframe {
 [ Form ]*/
 
 .login100-form {
+  margin:0;
   width: 100%;
   border-radius: 10px;
   background: transparent;
@@ -489,6 +493,110 @@ background-image: linear-gradient(315deg, #f2cf07 0%, #55d284 74%);
     opacity: 1;
   }
 }
+
+/* Remove dark-nav class from nav tag to see the light version  */
+
+
+.container:after, .container:before {
+
+  content: "";
+  display: block;
+  clear: both;
+
+}
+
+/* Start navbar */
+.nav {
+  background-color: #000;
+  border-bottom: 1px solid #ececec;
+  min-height: 50px;
+  height: auto;
+}
+.nav .nav-heading {float: center}
+
+
+.nav .nav-heading > a {
+  text-decoration: none;
+  color: #fff;
+  line-height: 60px;
+  font-weight: 400;
+  font-size: 19px;
+}
+
+
+/*.nav .list {
+
+  float: center;
+  margin: 0;
+}*/
+
+ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav .list > li {
+ 
+  /*float: left;*/
+  margin-left: 100px;
+  margin-right:100px;
+  margin-bottom:30px;
+  list-style: none;
+}
+
+
+.nav .list > li > a {
+ 
+  color: #fff;
+  transition: background-color .2s, color .2s;
+
+  text-decoration: none;
+  display: block;
+
+   padding:12px;
+  line-height:1;
+
+}
+
+
+
+.nav .list > li > a:hover,
+.nav .list > li.active > a:focus {
+ 
+  background-color: #fff;
+  color: #000;
+}
+
+
+.show {
+  display: block
+}
+
+/* End sub dropdown menu */
+
+
+/* Start media query for navbar */
+@media (max-width: 767px) {
+  .nav .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .nav .nav-heading {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 1px solid #e7e7e7
+  }
+  .nav .nav-heading .brand {
+    float: center}
+
+/*transition*/
+
+
 
 
 

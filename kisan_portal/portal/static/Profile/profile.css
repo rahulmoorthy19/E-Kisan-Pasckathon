@@ -1,7 +1,7 @@
 
 body{
   font-family: "Lato", sans-serif;
-  background-image: url('farm.jpg');
+  background-image: url('a6.jpg');
   height: 980px;
   background-blend-mode: "screen"
   background-position: center center;
@@ -89,6 +89,7 @@ p{
 
 .top-title{
   color: white;
+  background:black;
   text-transform: uppercase;
   margin: 0 auto; 
   padding: 20px 0;
@@ -103,12 +104,13 @@ p{
 }
 
 .container{
-  margin-left: 410px;
+  margin-left: 170px;
   margin-top:150px;
+  margin-right: 150px;
   display: flex;
-  position: fixed;
+  position: relative;
   align-items: center;
-  padding: 20px 20px 20px 20px;
+  padding: 20px 0px 20px 20px;
   background-color:white;
   border-radius: 6px;
   box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
@@ -132,7 +134,9 @@ p{
 .right-content{
 
   margin-top:40px;
-  margin-right: 10px;
+  margin-right: 5px;
+  padding-right: 5px;
+  
 }
 
 
@@ -155,7 +159,7 @@ p{
 
 .labels{
   font-weight: 400;
-  margin-right: 100px;
+  margin-right: 50px;
   margin-left:100px
   color:black
 }
